@@ -1,0 +1,57 @@
+﻿@using System.Collections.Generic;
+@using System.Collections;
+
+@model  MySample.Model.Deparatment
+
+@{
+    ViewBag.Title = "AddDepartment";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Create New Department</h2>
+    </div>
+</div>
+@using (Html.BeginForm("AddDepartment", "Department", FormMethod.Post, new { id = "AddDepartment" }))
+{
+    if (ViewBag.SuccessMessage != null)
+    {
+        <div class="row">
+            <div class="col-md-12">
+                @Html.Label((string)ViewBag.SuccessMessage, new { @class = "label-primary" })
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.Name, new { @class = "label-primary" })
+        </div>
+        <div class="col-md-2">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        </div>
+        <div class="col-md-2">
+            @Html.ValidationMessageFor(m=>m.Name)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.Administrator, new { @class = "label-primary" })
+        </div>
+        <div class="col-md-2">
+            @Html.TextBoxFor(m => m.Administrator, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            @Html.LabelFor(m => m.Budget, new { @class = "label-primary" })
+        </div>
+        <div class="col-md-2">
+            @Html.TextBoxFor(m => m.Budget, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="submit">Click</button>
+        </div>
+    </div>
+}
